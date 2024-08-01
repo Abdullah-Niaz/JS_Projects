@@ -12,7 +12,7 @@ form.addEventListener("submit", function(e) {
     } else if (isNaN(weight) || weight <= 0) {
         result.innerHTML = "Please provide a valid weight.";
     } else {
-        result.innerHTML = (weight / ( ( height * weight) / 10000).toFixed(2));
+        result.innerHTML = (weight / ( ( height * weight) / 10000)).toFixed(2);
         // You can proceed with further processing here
     }
 });
