@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Interval | Set Interval</title>
+  </head>
+  <style>
+    .btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      transition: transform 0.3s;
+    }
+
+    #start {
+      background-color: #00ff00;
+      box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+      animation: blink 1s infinite alternate;
+    }
+
+    #stop {
+      background-color: #ff0000;
+      box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+      animation: blink 1s infinite alternate;
+    }
+
+    @keyframes blink {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.5;
+      }
+    }
+  </style>
+  <body>
+    <div class="btns">
+      <button id="start">start</button>
+      <button id="stop">stop</button>
+    </div>
+
+    <script>
+      const startBtn = document.querySelector("#start");
+      const stopBtn = document.querySelector("#stop");
+
+      function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+
+      let intervalId;
+
+      startBtn.addEventListener("click", function () {
+        intervalId = setInterval(function () {
+          console.log("hello");
+          document.body.style.background = getRandomColor();
+        }, 2000);
+      });
+
+      stopBtn.addEventListener("click", function () {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null; // Reset the intervalId to allow restarting later
+        }
+      });
+    </script>
+  </body>
+</html>
