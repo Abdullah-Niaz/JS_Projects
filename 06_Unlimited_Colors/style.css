@@ -1,0 +1,39 @@
+.btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s;
+  }
+
+  #start {
+    background-color: #00ff00;
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+    animation: blink 1s infinite alternate;
+  }
+
+  #stop {
+    background-color: #ff0000;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+    animation: blink 1s infinite alternate;
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.5;
+    }
+  }
